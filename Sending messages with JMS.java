@@ -68,3 +68,11 @@ Message toMessage(Object object, Session session)
 throws JMSException, MessageConversionException;
 Object fromMessage(Message message)
 }
+
+@Bean
+public MappingJackson2MessageConverter messageConverter() {
+MappingJackson2MessageConverter messageConverter =
+new MappingJackson2MessageConverter();
+messageConverter.setTypeIdPropertyName("_typeId");
+return messageConverter;
+}
